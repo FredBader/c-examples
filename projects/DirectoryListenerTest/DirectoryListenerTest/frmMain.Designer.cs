@@ -36,6 +36,7 @@
       this.lblAction = new System.Windows.Forms.Label();
       this.btnClose = new System.Windows.Forms.Button();
       this.btnFolderBrowserDialog = new System.Windows.Forms.Button();
+      this.listFiles = new System.Windows.Forms.ListView();
       this.SuspendLayout();
       // 
       // titleFileName
@@ -95,7 +96,7 @@
       // btnClose
       // 
       this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnClose.Location = new System.Drawing.Point(257, 170);
+      this.btnClose.Location = new System.Drawing.Point(257, 506);
       this.btnClose.Name = "btnClose";
       this.btnClose.Size = new System.Drawing.Size(95, 23);
       this.btnClose.TabIndex = 8;
@@ -111,12 +112,23 @@
       this.btnFolderBrowserDialog.TabIndex = 9;
       this.btnFolderBrowserDialog.UseVisualStyleBackColor = true;
       // 
+      // listFiles
+      // 
+      this.listFiles.Location = new System.Drawing.Point(10, 189);
+      this.listFiles.MultiSelect = false;
+      this.listFiles.Name = "listFiles";
+      this.listFiles.Size = new System.Drawing.Size(341, 307);
+      this.listFiles.TabIndex = 10;
+      this.listFiles.UseCompatibleStateImageBehavior = false;
+      this.listFiles.View = System.Windows.Forms.View.Details;
+      // 
       // frmMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.btnClose;
-      this.ClientSize = new System.Drawing.Size(364, 206);
+      this.ClientSize = new System.Drawing.Size(372, 541);
+      this.Controls.Add(this.listFiles);
       this.Controls.Add(this.btnFolderBrowserDialog);
       this.Controls.Add(this.btnClose);
       this.Controls.Add(this.lblAction);
@@ -142,6 +154,7 @@
     private System.Windows.Forms.Label lblAction;
     private System.Windows.Forms.Button btnClose;
     private System.Windows.Forms.Button btnFolderBrowserDialog;
+    private System.Windows.Forms.ListView listFiles;
   }
 }
 

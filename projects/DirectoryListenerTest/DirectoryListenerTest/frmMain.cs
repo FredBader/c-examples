@@ -10,10 +10,13 @@ namespace DirectoryListenerTest
   public partial class frmMain : Form
   {
 
-    // This delegate enables asynchronous calls for setting
-    // the text property on a TextBox and Label control.
+    // This delegate enables asynchronous calls 
     #region Thread Delegate
+    // Delegate for setting the text property on a TextBox and Label control.
     delegate void SetTextCallback(string text);
+
+    // Delegate for listing the files in the listFiles ListView.
+    delegate void SetListFIleCallback();
     #endregion
 
     #region Constructor and Destructor
@@ -166,6 +169,19 @@ namespace DirectoryListenerTest
         textDirectory.Text = svPath;
       }
     }
+
+    private void zzResetListFiles()
+    {
+      if (listFiles.InvokeRequired)
+      {
+        SetListFIleCallback d = null;
+        this.Invoke(d, new object[] { });
+      }
+      else
+      {
+        
+      }
+    }
     #endregion
 
     // Listens to the file system change notifications 
@@ -260,5 +276,6 @@ namespace DirectoryListenerTest
       }
     }
     #endregion
+
   }
 }
