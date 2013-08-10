@@ -16,7 +16,7 @@ namespace DirectoryListenerTest
     delegate void SetTextCallback(string text);
 
     // Delegate for listing the files in the listFiles ListView.
-    delegate void SetListFIleCallback();
+    delegate void SetListFileCallback();
     #endregion
 
     #region Constructor and Destructor
@@ -55,6 +55,9 @@ namespace DirectoryListenerTest
       zzSetLabelText("", "");
       zzSetActionListeners();
       zzInitFolderBrowser();
+
+      listFiles.Columns.Add("Files", 337);
+      zzResetListFiles();
     }
 
     /// <summary>
@@ -89,7 +92,11 @@ namespace DirectoryListenerTest
 
       // Watch for the textDirectory text to change and
       // then start watching that directory
-      textDirectory.TextChanged += (sender, e) => { zzSetDirectoryListener(textDirectory.Text); };
+      textDirectory.TextChanged += (sender, e) => 
+      { 
+        zzSetDirectoryListener(textDirectory.Text);
+        zzResetListFiles();
+      };
 
       // btnClose was clicked so close this application
       btnClose.Click += (sender, e) => { this.Close(); };
@@ -174,14 +181,45 @@ namespace DirectoryListenerTest
     {
       if (listFiles.InvokeRequired)
       {
-        SetListFIleCallback d = null;
+        SetListFileCallback d = new SetListFileCallback(zzResetListFiles);
         this.Invoke(d, new object[] { });
       }
       else
       {
-        
+        zzClearList();
+        zzAddListItems();
       }
     }
+
+    private void zzClearList()
+    {
+
+      listFiles.Items.Clear();
+
+    }
+
+    private void zzAddListItems()
+    {
+      try
+      {
+        DirectoryInfo olDirInfo = new DirectoryInfo(textDirectory.Text);
+
+        foreach (FileInfo olFileInfo in olDirInfo.GetFiles("*.*"))
+        {
+          ListViewItem olFileItem = new ListViewItem(olFileInfo.Name);
+          olFileItem.Tag = olFileInfo.FullName;
+          listFiles.Items.Add(olFileItem);
+        }
+
+      }
+      catch (Exception)
+      {
+
+        throw;
+      }
+
+    }
+  
     #endregion
 
     // Listens to the file system change notifications 
@@ -260,6 +298,7 @@ namespace DirectoryListenerTest
     {
       zzSetAction(svAction);
       zzSetFileName(svFile);
+      zzResetListFiles();
     }
 
     /// <summary>

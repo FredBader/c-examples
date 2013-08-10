@@ -80,9 +80,9 @@
       // 
       // textDirectory
       // 
-      this.textDirectory.Location = new System.Drawing.Point(10, 30);
+      this.textDirectory.Location = new System.Drawing.Point(15, 30);
       this.textDirectory.Name = "textDirectory";
-      this.textDirectory.Size = new System.Drawing.Size(301, 20);
+      this.textDirectory.Size = new System.Drawing.Size(313, 20);
       this.textDirectory.TabIndex = 6;
       // 
       // lblAction
@@ -106,18 +106,18 @@
       // btnFolderBrowserDialog
       // 
       this.btnFolderBrowserDialog.AutoEllipsis = true;
-      this.btnFolderBrowserDialog.Location = new System.Drawing.Point(317, 30);
+      this.btnFolderBrowserDialog.Location = new System.Drawing.Point(329, 30);
       this.btnFolderBrowserDialog.Name = "btnFolderBrowserDialog";
-      this.btnFolderBrowserDialog.Size = new System.Drawing.Size(35, 20);
+      this.btnFolderBrowserDialog.Size = new System.Drawing.Size(23, 20);
       this.btnFolderBrowserDialog.TabIndex = 9;
       this.btnFolderBrowserDialog.UseVisualStyleBackColor = true;
       // 
       // listFiles
       // 
-      this.listFiles.Location = new System.Drawing.Point(10, 189);
+      this.listFiles.Location = new System.Drawing.Point(10, 170);
       this.listFiles.MultiSelect = false;
       this.listFiles.Name = "listFiles";
-      this.listFiles.Size = new System.Drawing.Size(341, 307);
+      this.listFiles.Size = new System.Drawing.Size(341, 326);
       this.listFiles.TabIndex = 10;
       this.listFiles.UseCompatibleStateImageBehavior = false;
       this.listFiles.View = System.Windows.Forms.View.Details;
