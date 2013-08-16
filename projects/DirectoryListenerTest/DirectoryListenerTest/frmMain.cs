@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.IO;
 
+
 // This project has examples for the FileSystemWatcher (http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx) and
 // making safe thread calls to form controls (http://msdn.microsoft.com/en-us/library/vstudio/ms171728(v=vs.100).aspx)
 
@@ -27,6 +28,7 @@ namespace DirectoryListenerTest
     // to watch
     FolderBrowserDialog omFolderBrowserDialog;
 
+   
     public frmMain()
     {
       InitializeComponent();
@@ -105,6 +107,7 @@ namespace DirectoryListenerTest
       btnFolderBrowserDialog.Click += (sender, e) => { zzFolderBrowserDialog(); };
     }
 
+    
     #endregion
 
     // These methods demonstrates a pattern for making thread-safe

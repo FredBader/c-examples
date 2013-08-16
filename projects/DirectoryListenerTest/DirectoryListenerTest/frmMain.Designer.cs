@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
       this.titleFileName = new System.Windows.Forms.Label();
       this.lblFileName = new System.Windows.Forms.Label();
       this.titleAction = new System.Windows.Forms.Label();
@@ -137,6 +138,7 @@
       this.Controls.Add(this.titleAction);
       this.Controls.Add(this.lblFileName);
       this.Controls.Add(this.titleFileName);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "frmMain";
       this.Text = "Directory Listener Test";
       this.ResumeLayout(false);
