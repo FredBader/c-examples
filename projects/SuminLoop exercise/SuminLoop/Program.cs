@@ -6,11 +6,15 @@ namespace SuminLoop
   class Program
   {
 
+
     // Count for the number of times the user entered a value
     private static Int32 imiN = 0;
 
     // This holds the values entered by the user
     private static List<Int32> omNumbersToAdd = new List<int>();
+
+    // The resulting summed amount
+    private static Int32 imResult = 0;
 
     static void Main(string[] args)
     {
@@ -19,19 +23,16 @@ namespace SuminLoop
       {
         // Prompt user for the values
       } while (zzGetConsoleValue() != 1);
-
-      // Get the summed amount of value
-      Int32 llValue = zzGetSummedAmount();
-
+      
       // -1 indicates an error with the zzGetSummedAmount.  Stop here
-      if (llValue == -1)
+      if (zzGetSummedAmount() == -1)
       {
         Console.ReadLine();
         return;
       }
 
       // Report the summed values
-      Console.WriteLine("The summed amount is {0}, press any key to quit.", llValue);
+      Console.WriteLine("The summed amount is {0}, press any key to quit.", imResult);
 
       // Read line so the console doesn't close
       Console.ReadLine();
@@ -45,23 +46,29 @@ namespace SuminLoop
     {
       try
       {
-        // The result of the summed amounts
-        Int32 vlSummedAmount = 0;
+        
+        omNumbersToAdd.ForEach(zzSumAmount);
 
-        //Loop through the list and add the numbers together
-        for (Int32 ili = 0; ili < omNumbersToAdd.Count; ili++)
-        {
-          vlSummedAmount = vlSummedAmount + omNumbersToAdd[ili];
-        }
-
-        // Return the value
-        return vlSummedAmount;
+        return 0;
       }
       catch (Exception)
       {
 
         return zzReportError();
       }
+    }
+
+    private static void zzSumAmount(Int32 ivValue)
+    {
+      try
+      {
+        imResult += ivValue;
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+      
     }
 
     /// <summary>
