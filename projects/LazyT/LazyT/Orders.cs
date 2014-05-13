@@ -8,11 +8,14 @@ namespace LazyT
   class Orders
   {
 
+    private Dictionary<Int32, Double> omCustomerOrders;
+
     public string CustomerID { get; private set; }
 
     private Orders(String svCustomerID)
     {
       CustomerID = svCustomerID;
+      zzRetriveOrders();
     }
 
     public static Orders QueryCustomerOrders(String svCustomerID)
@@ -24,12 +27,28 @@ namespace LazyT
     {
       get
       {
-        Dictionary<Int32, Double> olOrders = new Dictionary<Int32, Double>();
-        olOrders.Add(1, 10.00);
-        olOrders.Add(2, 12.95);
-        olOrders.Add(3, 15.00);
+        return omCustomerOrders;
+      }
+    }
 
-        return olOrders;
+    private void zzRetriveOrders()
+    {
+      try
+      {
+        omCustomerOrders = new Dictionary<Int32, Double>();
+
+        Random olRandom = new Random();
+
+        for (Int32 ili = 1; ili <= 100; ili++)
+        {
+          Double dlRandomNumber = olRandom.NextDouble() * 100;
+          omCustomerOrders.Add(ili, dlRandomNumber);
+        }
+      }
+      catch (Exception)
+      {
+
+        throw;
       }
     }
   }
